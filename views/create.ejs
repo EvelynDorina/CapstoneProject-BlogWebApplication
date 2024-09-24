@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/node_modules/bulma/css/bulma.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>Create</title>
+</head>
+<body>
+    <%- include("partials/header.ejs") %>
+    <section class="hero is-medium is-link"></section>
+  <div class="hero-body">
+    <p class="title">Create</p>
+    <!-- <p class="subtitle">Lets Start to write something</p> -->
+  <div>
+    <form action="/create" method="post" onsubmit="return validateForm();">
+      
+  <div class="field container">
+    <label class="label" for="title">Title</label>
+    <div class="control">
+      <input class="input" type="text" id="title" name="title" placeholder="What do you wanna write?">
+    </div>
+  </div>
+
+    <div class="field container">
+    <label class="label" for="content">Content</label>
+    <div class="control">
+      <textarea class="textarea" id="content" rows="11"name="content" placeholder="Just say something"></textarea>
+    </div>
+  </div>
+
+
+  <div class="field is-grouped container">
+    <div class="control">
+      <button class="button submit" type="submit" >Submit</button>
+    </div>
+    <div class="control">
+      <button class="button cancel"><a class="cancel" href="/">Cancel</a></button>
+    </div>
+  </div>
+    </form>
+
+  </div>
+</div>
+
+</div>
+  
+ 
+</section>
+<script>
+ function validateForm() {
+  const title = document.getElementById("title").value;
+  const content = document.getElementById("content").value;
+
+  if (!title || !content) {
+    alert("Please fill in both the title and content.");
+    window.location.href = "/create-post";  // redirect to create post page
+    return false;  // stop submiting
+  }
+
+  return true;  //submit success
+}
+</script>
+</body>
+
+</html>
