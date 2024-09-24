@@ -31,10 +31,10 @@ app.post("/create", (req, res) => {
     posts.push(newPost);
     res.redirect("/");
   } else {
-    res
-      .status(400)
-      .send("Please fill in both the title and content to submit your blog.");
-    // res.redirect("/");
+    // res
+    //   .status(400)
+    //   .send("Please fill in both the title and content to submit your blog.");
+    res.redirect("/");
   }
 
   // next();
